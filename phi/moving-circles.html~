@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+    <script src="kinetic-v5.1.0.min.js"></script>
+    <script src="sylvester.js"></script>
+    <script src="phi.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>     
+     function random(min, max){
+       return Math.round((max - min) * Math.random()) + min;
+     }
+
+     var canvasWidth = 800, canvasHeight = 800;
+     var stage = new Kinetic.Stage({
+       container: 'container',
+       width: canvasWidth,
+       height: canvasHeight,
+     });
+     
+     var layer = new Kinetic.Layer({
+
+     });
+     
+     var bkg = new Kinetic.Rect({
+       x: 0,
+       y: 0,
+       width: canvasWidth,
+       height: canvasHeight,
+       id: 'bkg',
+       fill: 'black'
+     });
+
+     // initialize shapes
+     var shapes = [];
+     var phiShapes = [];
+     var velocity, circle, wall, maxR = 40, minR = 20;
+     for (var i = 0; i < 70; i ++){
+       circle = new Kinetic.Circle({
+	 x: random(maxR, canvasWidth - maxR),
+	 y: random(maxR, canvasHeight - maxR),
+	 id: 'circle',
+	 radius: random(maxR, maxR),
+	 draggable: false,
+	 strokeWidth: 1,
+	 stroke: '#ffffff'
+       });
+       velocity = $V([random(-200,200), random(-200,200)]);
+//       velocity = $V([0,0]);
+       shapes.push(circle);
+       phiShapes.push(PHI.kineticCircleToPhiCircle(circle, velocity));
+     }
+
+     // add four walls, but do not render them
+     phiShapes.push(new PHI.Rect(canvasWidth/2,0,canvasWidth/2,0,0,$V([0,0])));
+     phiShapes.push(new PHI.Rect(canvasWidth/2,canvasHeight,canvasWidth/2,0,0,$V([0,0])));
+     phiShapes.push(new PHI.Rect(0,canvasHeight/2,0,canvasHeight/2,0,$V([0,0])));
+     phiShapes.push(new PHI.Rect(canvasWidth,canvasHeight/2,0,canvasHeight/2,0,$V([0,0])));
+
+     // add the shapes to the layer
+     layer.add(bkg);
+     for (var i = 0; i < shapes.length; i ++){
+       layer.add(shapes[i]);
+     }
+     // add the layer to the stage
+     stage.add(layer);
+
+     var manifolds, collisions;
+     var cnt = 0, debug = false;
+     var timestep = PHI.timestep; // best timestep for phi
+     // never use frame.timeDiff as the simulation timestep!!!
+     // frame.timeDiff is just the computational time between frames
+     // if the timestep is VARIED FROM FRAME TO FRAME then the whole system will jitter!
+     var anim = new Kinetic.Animation(function(frame) {       
+       cnt ++;
+       // 0. contact solver using speculative contacts
+       if (cnt > 1){
+	 // needswork: speculative contacts cicleVsRect and rectVsRect
+	 for (var i = 0; i < manifolds.length; i ++){
+	   PHI.contactSolver(manifolds[i], timestep);
+	 }
+       }
+       // 1. integrate (and render); loop over kinetic objects
+       for (var i = 0; i < shapes.length; i ++){
+	 phiShapes[i].center = phiShapes[i].center.add(phiShapes[i].velocity.x(timestep));
+	 phiShapes[i].velocity = phiShapes[i].velocity.add($V([0,-PHI.gravity*40]).x(timestep));
+	 shapes[i].setX(phiShapes[i].center.e(1));
+	 shapes[i].setY(-phiShapes[i].center.e(2));
+       }
+       // 2. collision detection and resolve; loop over phi objects
+       collisions = [];
+       manifolds = [];
+       var manifold;
+       // detect
+       for (var i = 0; i < phiShapes.length; i ++){
+	 for (var j = i + 1; j < phiShapes.length; j ++){
+	   manifold = new PHI.Manifold(phiShapes[i], phiShapes[j]);	   
+	   manifolds.push(manifold);
+	   if (PHI.shapeVsShape(manifold)){
+	     collisions.push(manifold);
+	   }
+	 }
+       }
+       // resolve
+       for (var i = 0; i < collisions.length; i ++){
+	 PHI.resolveCollision(collisions[i]);
+       }
+     }, layer);     
+
+     anim.start();
+
+    </script>
+  </body>
+</html>

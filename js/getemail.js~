@@ -1,0 +1,5 @@
+function getemail(){
+    var foo1 = "haonan";
+    var foo2 = "haonanyu.com";
+    document.write(foo1 + "@" + foo2);
+}

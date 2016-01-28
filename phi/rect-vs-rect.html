@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+    <script src="kinetic-v5.1.0.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="sylvester.js"></script>
+    <script src="phi.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+     function canvas_arrow(fromx, fromy, tox, toy){
+       var headlen = 5;   // how long you want the head of the arrow to be, you could calculate this as a fraction of the distance between the points as well.
+       var angle = Math.atan2(toy-fromy,tox-fromx);
+       
+       line = new Kinetic.Line({
+         points: [fromx, fromy, tox, toy, tox-headlen*Math.cos(angle-Math.PI/6),toy-headlen*Math.sin(angle-Math.PI/6),tox, toy, tox-headlen*Math.cos(angle+Math.PI/6),toy-headlen*Math.sin(angle+Math.PI/6)],
+         stroke: "red"
+       });
+       return line;
+     }
+
+     var stage = new Kinetic.Stage({
+       container: 'container',
+       width: 400,
+       height: 400,
+     });
+     
+     var layer = new Kinetic.Layer({
+
+     });
+     
+     var bkg = new Kinetic.Rect({
+       x: 0,
+       y: 0,
+       width: stage.getWidth(),
+       height: stage.getHeight(),
+       id: 'bkg',
+       fill: 'black'
+     });
+
+     var data = [{x: 100, y: 120, height: 100, width: 100, id: 'rect1', color: '#ffffff'},
+		{x: 220, y: 150, height: 70, width: 150, id: 'rect2', color: '#f040ff'}];     
+
+     var rects = [];
+     for (var i = 0; i < data.length; i ++){
+       var item = data[i];
+       rects[i] = new Kinetic.Rect({
+	 x: item.x,
+	 y: item.y,
+	 id: item.id,
+	 width: item.width,
+	 height: item.height,
+	 stroke: item.color,
+	 strokeWidth: 1,
+	 draggable: true,
+	 offsetX: item.width/2,
+	 offsetY: item.height/2,
+       });
+     }
+     
+     // overlap information
+     var text1 = new Kinetic.Text({
+       x: 0,
+       y: 0,
+       text: 'press R/T to rotate',
+       fontSize: 13,
+       fill: 'green'
+     });
+     var text2 = new Kinetic.Text({
+       x: 0,
+       y: 10,
+       text: 'no intersection',
+       fontSize: 13,
+       fill: 'green'
+     });
+     var text3 = new Kinetic.Text({
+       x: 0,
+       y: 20,
+       text: 'penetration depth: 0',
+       fontSize: 13,
+       fill: 'green'
+     });
+
+     // add the shape to the layer
+     layer.add(bkg);
+     layer.add(text1);
+     layer.add(text2);
+     layer.add(text3);
+     for (var i = 0; i < data.length; i ++){
+       layer.add(rects[i]);
+     }
+     // add the layer to the stage
+     stage.add(layer);
+
+     // the currect focused object
+     var target;
+     
+     // all events bindings go *after* the stage setup
+
+     function intersectionTest(){
+       var rect1 = new PHI.Rect(rects[0].position().x,
+				rects[0].position().y,
+				rects[0].width()/2,
+				rects[0].height()/2,
+				rects[0].rotation()*Math.PI/180);
+       var rect2 = new PHI.Rect(rects[1].position().x,
+				rects[1].position().y,
+				rects[1].width()/2,
+				rects[1].height()/2,
+				rects[1].rotation()*Math.PI/180);
+       var manifold = new PHI.Manifold(rect1, rect2);
+       if (PHI.rectVsRect(manifold)){
+	 text2.setText('intersection detected!');
+	 text3.setText('penetration depth: ' + manifold.penetration);
+	 var normal = $V([manifold.normal.e(1), 
+			  manifold.normal.e(2)]);
+	 var rect = normal.dot(rect1.center.subtract(rect2.center))>0?rect1:rect2;
+
+	 var p = rect.center.add(normal.x(25));
+
+	 arrow = canvas_arrow(rect.center.e(1),
+			      -rect.center.e(2),
+			      p.e(1),
+			      -p.e(2));
+	 layer.add(arrow);
+	 layer.draw();
+	 arrow.remove();
+       } else{
+	 text2.setText('no intersection');
+	 text3.setText('penetration depth: 0');
+	 layer.draw();	 
+       }
+     }
+
+     // test for initial
+     intersectionTest();
+
+     $('canvas').mouseover(function(){
+       $(this).attr('tabindex','0').focus();
+     }).mouseout(function(){
+       $(this).blur();
+     }).keydown(function(e){
+       if (target != null){
+	 switch(e.keyCode){
+	   case 82:
+	     target.rotate(15);
+	     intersectionTest();
+	     break;
+	   case 84:
+	     target.rotate(-15);
+	     intersectionTest();
+	     break;
+	 }
+       }
+     });
+     // get the focused shape
+     layer.on('mousemove', function(e){
+       var shape = e.targetNode;
+       if (shape.getId() == 'bkg'){
+	 target = null;
+       } else{
+	 target = shape;
+       }       
+     });
+     var arrow;
+     // test intersection
+     layer.on('mouseup', intersectionTest);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,233 @@
+1. (5s) Children learn language from what they see and what they
+   hear. We attempt to model this language acquisition problem.
+
+2. (40s) We know that adults are able to ground word meanings to the
+   concepts in the world. If they are given a video with a sentence
+   "The person carried the traffic-cone", they are able to point out
+   the objects that participate in the event described by the
+   sentence. Or, just given the video, they are able to tell others
+   what happened. From a huge number of possible sentences in their
+   mind, they know which sentences are true and which are
+   false. Adults can perform these tasks because they learned language
+   when they were children.
+
+3. (60s) So what do children learn from? Every time they see something
+   happen, they hear others talk about it. We can use video clips to
+   represent what they see and use sentences to represent what they
+   hear. So each time they have a video clip paired with a sentence.
+   This is a video-sentence pair and this is another one. However, in
+   practice the situation may be even more complicated.  A video clip
+   may be paired with multiple sentences, and a sentence could be used
+   to describe multiple video clips. Although there is ambiguity in
+   every video-sentence pair, because children see and hear a lot,
+   eventually they are able to learn the meaning for each word. Then
+   the learned words can be combined to generate new sentences. We are
+   going to model this language acquisition problem.
+
+4. (60s) How can we do this? Here is the general idea. A
+   video-sentence pair is a constraint imposed on the words in the
+   sentence. With more video-sentence pairs, we will have a network
+   connecting words together. So when word meanings are being learned,
+   they are mutually constrained.  For example, if we know the meaning
+   of backpack and person, the meaning of picked-up can be inferred
+   from this constraint. This is 'INFERENCE ACROSS DIFFERENT WORDS IN
+   THE SAME SENTENCE'. Then after we have learned the meaning of
+   picked-up, the meaning of chair can be inferred from another
+   constraint. This is 'INFERENCE ACROSS THE SAME WORD IN DIFFERENT
+   SENTENCES'. So the word meanings can propagate through the
+   network. Even without prior information of any word, enough
+   constraints will help us resolve the ambiguity and learn the word
+   meanings.
+
+5. (40s) There has been some work on modeling events and objects in
+   computer vision community. They train object models by annotating
+   the objects in images. They train event models by pooling videos
+   that describe the same event. Strictly speaking, they learn visual
+   statistics instead of word meanings. But even if they are thought
+   of learning the meaning for nouns and verbs, they can only learn
+   each word independently and don't learn other parts-of-speech, such
+   as prepositions or adverbs. We're going to show that our algorithm
+   learns other parts-of-speech in addition to nouns and verbs. And we
+   learn all of them simultaneously.
+
+6. (100s) Our sentences are generated from a grammar. We want to learn
+   a lexicon based on it. In the lexicon there are six nouns, two
+   spatial-relation prepositions, four verbs, two adverbs, and two
+   motion prepositions. Note that there is an infinite recursion in
+   the noun phrase, and an infinite number of sentences could be
+   generated from our lexicon. So what exactly do we want to learn?
+   Here is a general idea. Word chair should be mapped to the object
+   that has the object class label as "chair". Word to-the-left-of
+   should represent a spatial relationship in which the x coordinate
+   of the first object is smaller than that of the second object. Word
+   approached should represent a process that in the beginning the
+   distance between two objects is above a threshold and in the end
+   the distance is below a threshold. Word quickly should represent
+   that the velocity of the object is above a threshold. Word away
+   from should represent a process that in the beginning the distance
+   between two objects is below the threshold and in the end the
+   distance is above the threshold. Now we have an idea of what we
+   might learn, but before getting to how we will learn it, let's
+   consider a closely-related problem: if we are given the word
+   meanings, how can we recognize the words in the video? We will
+   answer this question first for nouns.
+
+7. (40s) As we have seen that our word meanings rely on the objects,
+   so the first thing we need to do is to detect objects in the
+   video. The current state-of-the-art object detectors are far from
+   perfect. If we want to detect the person and the bag in this image,
+   usually we will have false positives and false negatives. What's
+   important for us is that we don't want to miss any object we're
+   interested in. So we lower the detector threshold and overgenerate
+   detections for each object class. We trade more false positives for
+   fewer false negatives. As shown in this example, we produce a bunch
+   of overgenerated detections for the person.
+
+8. (100s) However, we only want the detection on the person at each
+   frame and have a time series of such detections. That is, we want
+   to 'track' the person over time. So how should we do this? Andrew
+   Viterbi solved a similar problem for Hidden Markov Models about 50
+   years ago. For HMMs, we have multiple states at each time frame but
+   only one state will be selected when we are estimating the optimal
+   state sequence given observed data. If we arrange detections at
+   each frame in a column, we then have T columns where T is the video
+   length. Each detection is just like an HMM state. There are an
+   exponential number of possible tracks but we want to estimate an
+   optimal one. This is just like estimating the optimal state
+   sequence for HMMs. It turns out that Viterbi also solved this
+   tracking problem ages ago! To measure the quality of a detection,
+   we score each detection by some function f, and to measure how well
+   the motion of the track matches the motion in the video, we compute
+   the temporal coherency between two detections in adjacent frames
+   with some function g. Now we maximize the linear combination of
+   detection score and temporal coherency. The solution to this
+   function can be found efficiently by Viterbi algorithm.
+
+9. (10s) Now we have object tracks for nouns and we move on to
+   recognize verbs with these tracks.
+
+10. (30s) To do this, we need to use these tracks to compute
+    statistics for analysis. To have motion information of an object,
+    we compute the velocity of the track. And if the event has
+    something to do with object identity, we use the object class
+    label of the track. Or to recognize that an object is approaching
+    another one, we compute the distance and also the orientation
+    between the tracks.
+
+11. (30s) So given a track, a feature vector can be computed from
+    it. We then need some technique to analyze the feature
+    vector. Here we model a verb as a Hidden Markov Model, with state
+    transition matrix a, and at each state we have an output
+    distribution h, which outputs features at each frame.
+
+12. (80s) Suppose we have a Viterbi tracker and an intransitive verb
+    that can be modeled as an HMM. As we have shown that a track
+    produced by Viterbi tracker can be analyzed by the HMM. But we can
+    do more than this: we could simultaneously do tracking and
+    recognition! Notice that the two lattices both have a similar
+    structure of Viterbi lattice and have similar estimation functions
+    for the optimal path in the lattice. So we could maximize the
+    linear combination of Viterbi tracker score and HMM score. But now
+    the track is not known to HMM, instead it's a variable. The way to
+    optimize this function is to take a cross product of the two
+    lattices. Each node on this new lattice is a combination of
+    detection and HMM state. This lattice allows us to employ all the
+    mechanisms in HMMs to jointly maximize the viterbi-tracker score
+    and the HMM score.
+
+13. (60s) Now we know how to recognize nouns and verbs in the
+    video. We move on to other words. We are going to model other
+    parts-of-speech also as HMMs. This may be overkill for nouns, but
+    doing so will not only allow us to model nouns that describe
+    dynamic processes, for example, the word "jump" in the sentence
+    "The jump was fast"; but also allow us to model verbs that
+    describe static processes, for example, the word "held" in the
+    sentence "The person held the backpack". Having such a unified
+    representation will let us have a unified learning algorithm. Then
+    we are able to simultaneously do recognition and tracking for
+    other parts-of-speech individually just like what we do with
+    verbs. But we are more interested in recognizing a collection of
+    words at the same time, especially when the words are in a
+    sentence, which is closely related to our learning problem.
+
+14. (150s) Suppose we have a video and a sentence, we want to
+    recognize the sentence in the video. First we detect objects in
+    the video. Then by parsing the sentence we know that there are
+    four participants: agent, patient, referent and goal. The word
+    person is linked to the agent, stool is linked to the referent,
+    traffic-cone is linked to the patient, and trash-can is linked to
+    the goal. Moreover, word carried takes the agent and the patient
+    as its arguments. So we link agent tracker and patient tracker to
+    carried. However, "the person carried the traffic-cone" is
+    different from "the traffic-cone carried the person", so the first
+    tracker for carried should be different from the second tracker
+    for carried. We use dashed line to represent this difference. We
+    move on to do this for to-the-left-of and towards. The important
+    thing here is that the trackers link words together in a way
+    coherent to the semantics of the sentence. Then we have HMM
+    lattices for all the words in the sentence, and tracker lattices
+    for all the participants. And you may have realized that this is
+    just a general case of our event tracker!  Instead of having only
+    one verb and one viterbi tracker, here we have multiple words and
+    multiple viterbi trackers. So again we try to maximize the linear
+    combination of the Viterbi tracker scores and the HMM scores,
+    except that the tracks are not given for HMMs as knowns but
+    instead as variables. The way to optimize this function is again
+    to take a cross product over all the lattices. The linking
+    function theta decides which Viterbi trackers are linked to which
+    word, as we showed in the previous slide.
+
+15. (60s) Now let's get back onto our learning algorithm. The sentence
+    tracker is what we use to impose the constraint on the words in a
+    sentence. We need to have enough constraints, or sentence
+    trackers, in order to learn the word meanings. Just like
+    estimating parameters for a single HMM from observed data with the
+    EM algorithm, here we wrap the sentence trackers which are
+    essentially about collections of HMMs in the EM loop. But before
+    that, we need to change the MAP estimation to log likelihood. In
+    the E-step, we compute the probability for tracks, HMM states and
+    outputs. In the M-step, we re-estimate the transition matrix a and
+    output distribution h.
+
+16. (40s) To find out how well the learning algorithm performs on the
+    problem of learning content words in the lexicon, we collected 95
+    video clips, with each video clip containing 1 person + 2 or 3
+    objects. We have about 200 video-sentence pairs both for training
+    and testing. Unlike most classification problems, our labels or
+    sentences are generative, so all of our test videos and sentences
+    never appear in the training set. Here are two examples of
+    video-sentence pairs. The videos have nontrivial actions performed
+    in complex background.
+
+17. (50s) We then compute ROC curves on the test set. For comparison,
+    we also evaluate the models which are constructed by hand
+    according to human knowledge. We believe that the hand-crafted
+    models can represent the good word meanings on our dataset. This
+    is the curve for our trained models. It's MUCH better than the
+    chance baseline. And this is the curve for the hand-crafted
+    ones. We can see that these two curves are VERY VERY CLOSE to each
+    other. But only having good statistics is not enough. What if we
+    are just overfitting on the dataset and learning some artificial
+    noise?
+
+18. (40s) To answer this question, we compare the trained models with
+    the hand-crafted ones. Here we draw the transition matrix and also
+    the output distribution at each state. For nouns, the distribution
+    is over object classes. We can see that the distributions have the
+    same peak. This is also true for other nouns, and also other
+    parts-of-speech: prepositions, adverbs, and verbs. Now we know
+    that we are indeed learning something meaningful.
+
+19. (40s) After learning the language, we describe video with
+    sentences that never appear in the training set with our learned
+    word models!  Given a video like this, we generate "The trash-can
+    approached the traffic-cone". WHAT'S MORE IMPORTANT, is that this
+    sentence does convey meaningful information because the nouns can
+    be recognized as shown by the object tracks in the video. At the
+    end of this talk, I'm going to show some other examples, and at
+    the same time I will take questions. Thank you!
+
+total: 1035s
+    
+
+
