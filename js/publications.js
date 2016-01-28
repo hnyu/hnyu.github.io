@@ -19,7 +19,7 @@ var pubs = [
      "<b>in Award-Winning Paper Track</b>"],
     ["<b>Haonan Yu</b>, Jeffrey Mark Siskind",
      "Learning to Describe Video with Weak Supervision by Exploiting Negative Sentential Information",
-     "http://haonanyu.com/papers/Yu2015-aaai.pdf",
+     "http://haonanyu.com/papers/aaai2015.pdf",
      "AAAI Conference on Artificial Intelligence",
      "2015",
      "*NONE*"],
