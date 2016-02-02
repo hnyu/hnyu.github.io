@@ -71,10 +71,12 @@ body {
 
 .floatr {
     float: right;
+    margin-left: 10px;
 }
 
 .floatl {
     float: left;
+    margin-right: 10px;
 }
 
 .container h4 {

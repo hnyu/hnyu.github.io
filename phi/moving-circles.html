@@ -48,14 +48,14 @@
      // initialize shapes
      var shapes = [];
      var phiShapes = [];
-     var velocity, circle, wall, maxR = 40, minR = 20;
+     var velocity, circle, wall, maxR = 40, minR = 10;
      var circles_n = random(1, 70);
      for (var i = 0; i < circles_n; i ++){
        circle = new Kinetic.Circle({
 	 x: random(maxR, canvasWidth - maxR),
 	 y: random(maxR, canvasHeight - maxR),
 	 id: 'circle',
-	 radius: random(maxR, maxR),
+	 radius: random(minR, maxR),
 	 draggable: false,
 	 strokeWidth: 1,
 	 stroke: random_color()
