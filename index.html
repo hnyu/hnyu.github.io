@@ -109,10 +109,16 @@
 	   document.write(pubs[i][3]);
 	   // year
 	   document.write(", " + pubs[i][4]);
-	   // note (if available)
-	   if (pubs[i][5] != "*NONE*") {
+	   // comment (if any)
+	   if (pubs[i][5] != "") {
 	     document.write(" (" + pubs[i][5] + ")");
 	   }
+	   // resource links (if any)
+	   for (j = 6; j < pubs[i].length; j += 1) {
+             if (pubs[i][j] != "") {
+	       document.write("<br>&plus;&plus; "+pubs[i][j]);
+             }
+	   }	   
 	   document.write("</p>");
 	 }
 	 $(".bib-entry").hover(

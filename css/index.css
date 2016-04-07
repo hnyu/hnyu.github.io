@@ -7,6 +7,10 @@ body {
   font-size: 13px;
 }
 
+a {
+    color: #026bc3;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
