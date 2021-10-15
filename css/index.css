@@ -4,7 +4,7 @@ body {
   padding-bottom: 5px;
   font-family: 'Ubuntu', sans-serif;
   background-color: #202020;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 a {
@@ -42,8 +42,8 @@ a {
 /* Customize container */
 @media {
   .container {
-    max-width: 550px;
-    background-color: #f2f2f2;
+    max-width: 800px;
+    background-color: #d3d6d8;
   }
 }
 .container-narrow > hr {

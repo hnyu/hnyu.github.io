@@ -37,7 +37,7 @@
       "\x66\x72\x6F\x6D\x43\x68\x61\x72\x43\x6F\x64\x65",
       "\x67\x6D\x61\x69\x6C\x2E\x63\x6F\x6D"];
       function getemail(){var _0x8dc4x2=_0xe1c0[0]+String[_0xe1c0[1]](117);var
-      _0x8dc4x3=_0xe1c0[2];return _0x8dc4x2+String[_0xe1c0[1]](64)+_0x8dc4x3}      
+      _0x8dc4x3=_0xe1c0[2];return _0x8dc4x2+String[_0xe1c0[1]](64)+_0x8dc4x3}
     </script>
   </head>
 
@@ -48,100 +48,99 @@
 	  <div class="floatl">
 	    <h3>Haonan Yu</h3>
 	    <p>
-	      Ph.D. candidate
+	      Research Scientist
 	      <br>
-	      Computer Engineering
-	      <br>
-	      Purdue University
+	      Horizon Robotics
 	      <br>
 	      <script>document.write(getemail());</script>
 	      <br>
-	      <a href="cv_HaonanYu.pdf">cv</a>
-	      / <a href="https://scholar.google.com/citations?user=Army5cEAAAAJ&hl=en">google scholar</a>
-	      / <a href="https://github.com/yu239">github</a>
+	      <a href="https://scholar.google.com/citations?user=Army5cEAAAAJ&hl=en">Google scholar</a>
+	      / <a href="https://github.com/hnyu">Github</a>
 	      <br>
-	      <a href="http://upplysingaoflun.ecn.purdue.edu/~qobi/cccp/">cccp website</a>
-	      <br>
-	    </p>	    
+	    </p>
 	  </div>
-	  <div class="floatl">
+	  <!--div class="floatl">
 	    <img src="./assets/haonan-photo.jpg">
-	  </div>
+	  </div-->
 	</div>
       </div>
 
       <div>
-	<p> 
-	  I am currently a final-year Ph.D. student at <a href="http://www.purdue.edu/">Purdue University</a>
-	  advised by professor <a href="https://engineering.purdue.edu/~qobi/">Jeffrey
-	  Mark Siskind</a>, before
-	  which I received my B.S. from <a href="http://english.pku.edu.cn/">Peking University</a>. My
-	  Ph.D. research is at the intersection of natural
-	  language processing and computer vision; I am generally interested
-	  in broad topics of AI.</p>
 	<p>
-	  I passed my thesis defense on April 5th, 2016.
+	  I am a research scientist at <a href="https://horizon.ai/gail">General AI Lab</a>,
+	  <a href="http://en.horizon.ai">Horizon Robotics</a>.
+	  In 2016, I got my Ph.D. degree of Electrical and Computer Engineering (ECE)
+	  from Purdue University. Previously, I worked at <a href="https://usa.baidu.com/">
+    Baidu Research</a> (2016-2018)
+    and <a href="https://ai.facebook.com/">Facebook AI Research</a> (2018-2019).
 	</p>
-	<p>
-	  I will join <a href="http://research.baidu.com/">Baidu Research</a> 
-	  after graduation.
-	</p>
-      </div>
 
-      <hr>
+  <p>My earlier research topics include object segmentation <small>[ACMMM2010]</small>,
+    language grounding from video <small>[ACL2013,AAAI2015,JAIR2015]</small>, video captioning
+    <small>[CVPR2016]</small>, embodied AI <small>[ICLR2018,CoRL2018,arXiv2019]</small>,
+    and the lottery ticket hypothesis <small>[NeurIPS2019,ICLR2020]</small>.
+  </p>
+  <p>
+    Since joining Horizon Robotics in 2019, I've been working on reinforcement
+    learning (RL) problems, including hierarchical RL <small>[ICLR2021,NeurIPS2021]</small> and
+    safe/constrained RL. I am also an active maintainer of the RL framework
+    <a href="https://github.com/HorizonRobotics/alf">ALF</a>.
+  </p>
 
-      <h4>Publications</h4>
-      <div>
+    </div>
+    <hr>
+
+    <h4>Selected publications</h4>
+    <div>
 	<script>
 	 for (i = 0; i < pubs.length; i += 1) {
 	   document.write("<p class='bib-entry'>");
-	   // authors
-	   document.write(pubs[i][0]+"<br>");
-	   // title and link
-	   document.write("<a href='"+pubs[i][2]+"'>"+pubs[i][1]+"</a><br>");
-	   // conference or journal name
-	   document.write(pubs[i][3]);
-	   // year
-	   document.write(", " + pubs[i][4]);
-	   // comment (if any)
-	   if (pubs[i][5] != "") {
-	     document.write(" (" + pubs[i][5] + ")");
+	   document.write(pubs[i]["authors"]+"<br>");
+	   document.write("<a href='"+pubs[i]["url"]+"'>"+pubs[i]["title"]+"</a><br>");
+	   document.write(pubs[i]["conference"]);
+	   document.write(", " + pubs[i]["year"]);
+	   if ("note" in pubs[i]) {
+	     document.write(" (" + pubs[i]["note"] + ")");
 	   }
 	   // resource links (if any)
-	   for (j = 6; j < pubs[i].length; j += 1) {
-             if (pubs[i][j] != "") {
-	       document.write("<br>&plus;&plus; "+pubs[i][j]);
-             }
-	   }	   
+     if ("resources" in pubs[i]) {
+      for (j = 0; j < pubs[i]["resources"].length; j += 1) {
+          document.write("<br>&rarr; "+pubs[i]["resources"][j]);
+      }
+     }
 	   document.write("</p>");
 	 }
-	 $(".bib-entry").hover(
-	   function () {
-	     $(this).css("background-color", "#ececec");
-	   },
-	   function () {
-	     $(this).css("background-color", "#f2f2f2");
-	   }
-	 );
+	 //$(".bib-entry").hover(
+	 //  function () {
+	 //    $(this).css("background-color", "#ececec");
+	 //  },
+	 //  function () {
+	 //    $(this).css("background-color", "#f2f2f2");
+	 //  }
+   //);
 	</script>
       </div>
 
       <hr>
 
-      <h4>Code</h4>
+      <h4>Softwares</h4>
       <div>
         <p>
-	  <a href="./phi/phi.js">PHI</a> – an experimental engine for
-	  2D collision detection, written in Javascript. An <a href="./phi/moving-circles.html">example</a>
-	  of detecting collisions between circles, using PHI.<br>
-	  <a href="https://github.com/yu239/local-job-scheduling">jobScheduling</a> – scripts for managing batch jobs on a local machine.<br>
-	  <a href="https://github.com/yu239/shotdetect">shotDetect</a> – a simple python program for detecting video shots, based on OpenCV.<br>
-	  <a href="https://github.com/yu239/public_html">personal website</a> - the code for this website (Javascript+Bootstrap).
+	  <a href="https://github.com/HorizonRobotics/alf">ALF</a> - Agent Learning Framework
+	  (ALF) is a PyTorch reinforcement learning framework emphasizing on the flexibility
+	  and easiness of implementing complex algorithms involving many different
+	  components.<br>
+    <a href="https://github.com/hnyu/taac">TAAC</a> - Temporally abstract actor-critic
+    algorithm for efficient continuous control.<br>
+	  <a href="https://github.com/PaddlePaddle/XWorld">XWorld</a> - A simulator
+	  package for RL research with language task support.<br>
+    <a href="https://github.com/idlrl/flare">FLARE</a> - A reinforcement learning framework for
+    training embodied agents with PyTorch.<br>
 	</p>
       </div>
 
       <footer class="footer">
-        <p>Last update: Apr 12, 2016</p>
+        <p>Last update: Oct 12, 2021</p>
       </footer>
     </div>
 
