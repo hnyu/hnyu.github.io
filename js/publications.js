@@ -13,7 +13,10 @@ var pubs = [
      url: "https://arxiv.org/pdf/2101.06521.pdf",
      conference: "ICLR",
      year: "2021",
-     note: "*Equal contribution"
+     note: "*Equal contribution",
+     resources : [
+         "<a href='https://github.com/jesbu1/hidio'>Code</a>"
+     ]
     },
     {authors: "<u>Haonan Yu</u>, Sergey Edunov, Yuandong Tian, Ari S Morcos",
      title: "Playing the lottery with rewards and multiple languages: lottery tickets in rl and nlp",
@@ -71,8 +74,8 @@ var pubs = [
      year: "2016",
      note: "Oral",
      resources: [
-        ("<a href='./datasets/youtubeclips.zip'>"
-        + "YouTubeClips</a> dataset (1.8GB) from the Youtube2text paper [Guadarrama <i>et al.</i>, 2013]"),
+        //("<a href='./datasets/youtubeclips.zip'>"
+        //+ "YouTubeClips</a> dataset (1.8GB) from the Youtube2text paper [Guadarrama <i>et al.</i>, 2013]"),
         "<a href='https://www.youtube.com/watch?v=QmLGgJTbtVU'>Talk</a>"
      ]},
     {authors: "<u>Haonan Yu</u>, Siddharth Narayanaswamy, Andrei Barbu, Jeffrey Mark Siskind",
@@ -94,7 +97,9 @@ var pubs = [
      conference: "ACL",
      year: "2013",
      note: "<b style='color:red'>Best Paper Award</b>",
-     resources: ["<a href='./slides/talk.pdf'>Slides</a>", "<a href='./datasets/acl2013-dataset.zip'>Dataset</a> (105MB)"]},
+     resources: ["<a href='./slides/talk.pdf'>Slides</a>",
+     //"<a href='./datasets/acl2013-dataset.zip'>Dataset</a> (105MB)"
+    ]},
     {authors: "<u>Haonan Yu</u>, Jia Li, Yonghong Tian, Tiejun Huang",
      title: "Automatic Interesting Object Extraction From Images Using Complementary Saliency Maps",
      url: "./papers/acmmm2010.pdf",
