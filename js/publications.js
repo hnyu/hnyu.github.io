@@ -67,6 +67,12 @@ var pubs = [
          "<a href='https://www.techrepublic.com/article/baidu-trained-an-ai-agent-to-navigate-the-world-like-a-parent-teaches-a-baby/'>Media</a>"
      ]
     },
+    {authors: "<u>Haonan Yu</u>, Jeffrey Mark Siskind",
+     title: "Sentence directed video object codiscovery",
+     url: "https://link.springer.com/content/pdf/10.1007/s11263-017-1018-6.pdf",
+     conference: "IJCV",
+     year: "2017"
+    },
     {authors: "<u>Haonan Yu</u>, Jiang Wang, Zhiheng Huang, Yi Yang, Wei Xu",
      title: "Video Paragraph Captioning Using Hierarchical Recurrent Neural Networks",
      url: "http://arxiv.org/pdf/1510.07712v2.pdf",
