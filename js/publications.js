@@ -49,7 +49,12 @@ var pubs = [
      url: "http://proceedings.mlr.press/v87/yu18a/yu18a.pdf",
      title: "Guided feature transformation (gft): A neural language grounding module for embodied agents",
      conference: "CoRL",
-     year: "2018"
+     year: "2018",
+     resources: [
+        "<a href='https://github.com/PaddlePaddle/XWorld/tree/master/games/xworld3d'>XWorld3D</a>",
+        "<a href='https://idlrl.github.io/flare/tutorial/gft.html'>PyTorch implementation of GFT</a>",
+        "<a href='https://www.youtube.com/watch?v=bOBb1uhuJxg'>Video demo</a>"
+     ]
     },
     {authors: "Haichao Zhang, <u>Haonan Yu</u>, Wei Xu",
     title: "Interactive language acquisition with one-shot visual concept learning through a conversational game",
@@ -80,8 +85,8 @@ var pubs = [
      year: "2016",
      note: "Oral",
      resources: [
-        //("<a href='./datasets/youtubeclips.zip'>"
-        //+ "YouTubeClips</a> dataset (1.8GB) from the Youtube2text paper [Guadarrama <i>et al.</i>, 2013]"),
+        "<a href='https://drive.google.com/open?id=1DXCldapcYSECI-sQxokZNyXgE3HNLAir'>"
+        + "YouTubeClips</a> dataset (1.8GB) from the <i>Youtube2text</i> paper [Guadarrama <i>et al.</i>, 2013]",
         "<a href='https://www.youtube.com/watch?v=QmLGgJTbtVU'>Talk</a>"
      ]},
     {authors: "<u>Haonan Yu</u>, Siddharth Narayanaswamy, Andrei Barbu, Jeffrey Mark Siskind",
