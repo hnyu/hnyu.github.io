@@ -5,7 +5,11 @@ var pubs = [
      conference: "NeurIPS",
      year: "2021",
      resources: [
-         "<a href='https://github.com/hnyu/taac'>Code</a>"
+         "<a href='https://github.com/hnyu/taac'>Code</a>",
+         "<a href='https://openreview.net/forum?id=PCLsRp_4R7C'>OpenReview</a>",
+         "<a href='https://drive.google.com/file/d/19pARWfSqJIlMFhiWDYGvnKJYPB41_Thk/view?usp=sharing'>Slides</a>",
+         "<a href='https://drive.google.com/file/d/1MRcMzPC57VH_cpz5pMT9uuK05i8dGg7S/view?usp=sharing'>Poster</a>",
+         "<a href='https://drive.google.com/file/d/1WH1hOHa9gQPkK9pyjNSg1mbSEkiMBWIu/view?usp=sharing'>Video</a>"
      ]
     },
     {authors: "Jesse Zhang*, <u>Haonan Yu</u>*, Wei Xu",
