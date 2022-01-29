@@ -1,4 +1,13 @@
 var pubs = [
+    {authors: "Haichao Zhang, Wei Xu, <u>Haonan Yu</u>",
+     title: "Generative Planning for Temporally Coordinated Exploration in Reinforcement Learning",
+     url: "https://arxiv.org/pdf/2201.09765.pdf",
+     conference: "ICLR",
+     year: "2022",
+     resources: [
+         "<a href='https://openreview.net/forum?id=YZHES8wIdE'>OpenReview</a>"
+     ]
+    },
     {authors: "<u>Haonan Yu</u>, Wei Xu, Haichao Zhang",
      title: "TAAC: Temporally Abstract Actor-Critic for Continuous Control",
      url: "https://arxiv.org/pdf/2104.06521.pdf",
