@@ -1,9 +1,24 @@
 var pubs = [
+    {authors: "<u>Haonan Yu</u>, Wei Xu, Haichao Zhang",
+     title: "Towards Safe Reinforcement Learning with a Safety Editor Policy",
+     url: "https://arxiv.org/pdf/2201.12427.pdf",
+     conference: "arXiv",
+     year: "2022",
+     note: "Preprint"
+    },
+    {authors: "<u>Haonan Yu</u>, Haichao Zhang, Wei Xu",
+     title: "Do You Need the Entropy Reward (in Practice)?",
+     url: "https://arxiv.org/pdf/2201.12434.pdf",
+     conference: "arXiv",
+     year: "2022",
+     note: "Preprint"
+    },
     {authors: "Haichao Zhang, Wei Xu, <u>Haonan Yu</u>",
      title: "Generative Planning for Temporally Coordinated Exploration in Reinforcement Learning",
      url: "https://arxiv.org/pdf/2201.09765.pdf",
      conference: "ICLR",
      year: "2022",
+     note: "Spotlight",
      resources: [
          "<a href='https://openreview.net/forum?id=YZHES8wIdE'>OpenReview</a>"
      ]
