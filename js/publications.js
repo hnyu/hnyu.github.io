@@ -135,7 +135,7 @@ var pubs = [
      url: "./papers/acl2013.pdf",
      conference: "ACL",
      year: "2013",
-     note: "<b style='color:red'>Best Paper Award</b>",
+     note: "Best Paper Award",
      resources: ["<a href='./slides/talk.pdf'>Slides</a>",
      //"<a href='./datasets/acl2013-dataset.zip'>Dataset</a> (105MB)"
     ]},
