@@ -20,7 +20,9 @@ var pubs = [
      year: "2022",
      note: "Spotlight",
      resources: [
-         "<a href='https://openreview.net/forum?id=YZHES8wIdE'>OpenReview</a>"
+         "<a href='https://openreview.net/forum?id=YZHES8wIdE'>OpenReview</a>",
+         "<a href='https://github.com/Haichao-Zhang/generative-planning'>Code</a>",
+         "<a href='https://drive.google.com/file/d/1NEKFIUWGrUMfCkyTfEt8_Z5wcA41Apes/view'>Slides</a>"
      ]
     },
     {authors: "<u>Haonan Yu</u>, Wei Xu, Haichao Zhang",
