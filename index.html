@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Haonan's personal page</title>
+    <title>Haonan's page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -29,8 +29,12 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <meta name="google-site-verification" content="9sYTX8oJdWKCg65ePSIPmE81nJAb0zEpvGWPRs6qaJM" />
     <!-- Google fonts -->
     <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <!-- my publication list -->
     <script src="./js/publications.js"></script>
     <!-- my email -->
@@ -72,14 +76,11 @@
   <div>
 	<p>
 	  I am a research scientist at <a href="https://en.horizon.ai/gail">General AI Lab</a>,
-	  <a href="http://en.horizon.ai">Horizon Robotics</a>.
-	  I got my Bachelor of Computer Science from Peking University,
-    and my Ph.D. of Electrical and Computer Engineering (ECE)
-	  from Purdue University. Previously, I worked at <a href="https://usa.baidu.com/">
+	  <a href="http://en.horizon.ai">Horizon Robotics</a>. Previously, I worked at <a href="https://usa.baidu.com/">
     Baidu Research</a> and <a href="https://ai.facebook.com/">Facebook AI Research</a>.
 	</p>
 
-  <p>My previous research topics include object segmentation <small>[ACMMM2010]</small>,
+  <p>My early research includes various topics such as object segmentation <small>[ACMMM2010]</small>,
     language grounding from video <small>[ACL2013,AAAI2015,JAIR2015,IJCV2017]</small>, video captioning
     <small>[CVPR2016]</small>, embodied language understanding and generalization <small>[ICLR2018,CoRL2018,arXiv2019]</small>,
     and the lottery ticket hypothesis <small>[NeurIPS2019,ICLR2020]</small>.
@@ -87,29 +88,37 @@
   <p>
     Since joining Horizon Robotics in 2019, I've been working on robotics problems using reinforcement
     learning (RL), including hierarchical RL <small>[ICLR2021,NeurIPS2021]</small>,
-    safe/constrained RL, and exploration. I am also an active maintainer of the RL framework
-    <a href="https://github.com/HorizonRobotics/alf">ALF</a>.
+    safe/constrained RL <small>[arXiv2022]</small>, and exploration <small>[NeurIPS2021,ICLR2022]</small>.
+    I am the co-author and an active maintainer of the RL framework
+    <a href="https://github.com/HorizonRobotics/alf">ALF</a> that supports most RL research at Horizon.
   </p>
 
     </div>
     <hr>
 
+    <h4>Education</h4>
+    <div>
+      <p>
+        <ul>
+          <li>Ph.D. of Electrical and Computer Engineering (ECE), Purdue University, 2016</li>
+          <li>Bachelor of Computer Science (CS), Peking University, 2011</li>
+        </ul>
+      </p>
+    </div>
+
+    <hr>
+
     <h4>Research interests</h4>
     <div><p>
-      After working on various topics of AI, now as a researcher I'm no longer
-      satisfied with applying deep learning, as a blackbox optimization tool, to a fixed dataset
-      (no matter how large it is), for the sole purpose of learning <a href="https://en.wikipedia.org/wiki/Correlation">
+      After working on various AI topics, now as a researcher I'm no longer
+      interested in applying deep learning, as a blackbox optimization tool, to a fixed dataset
+      (no matter how large it is), for learning <a href="https://en.wikipedia.org/wiki/Correlation">
       statistical correlations</a> \(f(x,y)\). For instance, \((x,y)\)
       could be \((image,label)\), \((video,sentence)\), \((sentence, sentence)\), or any other such
-      combinations.
-      <p>
-
-      <p>
-      I personally don't believe that correlation will lead us to true AI, just as we
-      "don't get to the moon by climbing a tree". Studying how to get to the tree top isn't
-      that really exciting to me. Deep learning has already proven its
+      combinations. I personally don't believe that correlation will lead us to strong AI. Deep learning has already
+      proven its
       strong capability of learning really complex correlations, and it might be better to leave
-      correlation learning tasks at scale to product teams in the industry, in specific application scenarios.
+      correlation learning at scale to product teams, under specific application scenarios.
       <!--(This isn't saying that deep learning as
       a powerful tool shouldn't be studied by researchers any more; in fact more basic research on how
       it works or how to further improve it in general is needed.)-->
@@ -117,8 +126,8 @@
 
       <p>
         So far, <a href="https://en.wikipedia.org/wiki/Causal_reasoning">causal reasoning</a>
-        is a promising direction to strong AI, or at least it is a further step towards it
-        compared to correlation learning. <a href="https://en.wikipedia.org/wiki/Reinforcement_learning">
+        is a promising direction to strong AI, or at least it is a further step towards it.
+        <a href="https://en.wikipedia.org/wiki/Reinforcement_learning">
           Reinforcement learning</a> can be thought of having a little
         flavor of causal reasoning because it usually asks one question: what consequences will
         I get if I take this action under this context (\(Q(s,a)\))? RL also gives an agent
@@ -177,8 +186,18 @@
 	</p>
       </div>
 
+      <hr>
+
+      <h4>Hobbies</h4>
+      <div>
+        <p>
+        I like playing video games, especially ARPG. So far my favorite games are
+        souls-like, by <a href="https://www.fromsoftware.jp/ww/">FromSoftware</a>.
+        </p>
+      </div>
+
       <footer class="footer">
-        <p>Last update: Feb 12, 2022</p>
+        <p>Last update: August 2022</p>
       </footer>
     </div>
 
