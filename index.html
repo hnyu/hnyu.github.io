@@ -50,30 +50,31 @@
 
   <body>
     <div class="container">
+      <p>
+          <img src="./assets/beach.jpg" style='height: auto; width: 100%; object-fit: contain;'>
+          <span class="floatr" style="font-size: xx-small">(Cannon Beach, Oregon)</span>
+      </p>
+
       <div class="header clearfix">
         <div>
-	  <div class="floatl">
-	    <h3>Haonan Yu</h3>
-	    <p>
-	      Research Scientist
-	      <br>
-	      Horizon Robotics
-	      <br>
-	      <script>document.write(getemail());</script>
-	      <br>
-	      <a href="https://scholar.google.com/citations?user=Army5cEAAAAJ&hl=en">Google scholar</a>
-	      / GitHub <a href="https://github.com/hnyu">@hnyu</a> <a href="https://github.com/yu239-zz">@yu239</a>
-        / <a href="https://haonanyu.blog">Blog</a>
-	      <br>
-	    </p>
-	  </div>
-	  <!--div class="floatl">
-	    <img src="./assets/haonan-photo.jpg">
-	  </div-->
-	  </div>
-  </div>
-
-  <div>
+          <div class="floatl">
+            <h3>Haonan Yu</h3>
+            <p>
+              Research Scientist
+              <br>
+              Horizon Robotics
+              <br>
+              <script>document.write(getemail());</script>
+              <br>
+              <a href="https://scholar.google.com/citations?user=Army5cEAAAAJ&hl=en">Google scholar</a>
+              / GitHub <a href="https://github.com/hnyu">@hnyu</a> <a href="https://github.com/yu239-zz">@yu239</a>
+              / <a href="https://haonanyu.blog">Blog</a>
+              <br>
+            </p>
+          </div>
+	      </div>
+      </div>
+    <div>
 	<p>
 	  I am a research scientist at <a href="https://en.horizon.ai/gail">General AI Lab</a>,
 	  <a href="http://en.horizon.ai">Horizon Robotics</a>. Previously, I worked at <a href="https://usa.baidu.com/">
@@ -110,29 +111,28 @@
 
     <h4>Research interests</h4>
     <div><p>
-      After working on various AI topics, now as a researcher I'm no longer
-      interested in applying deep learning, as a blackbox optimization tool, to a fixed dataset
-      (no matter how large it is), for learning <a href="https://en.wikipedia.org/wiki/Correlation">
-      statistical correlations</a> \(f(x,y)\). For instance, \((x,y)\)
+      My various AI research works prior to 2019 were basically about learning <a href="https://en.wikipedia.org/wiki/Correlation">
+      statistical correlations</a> \(f(x,y)\) between two variables. For instance, \((x,y)\)
       could be \((image,label)\), \((video,sentence)\), \((sentence, sentence)\), or any other such
-      combinations. I personally don't believe that correlation will lead us to strong AI. Deep learning has already
-      proven its
-      strong capability of learning really complex correlations, and it might be better to leave
-      correlation learning at scale to product teams, under specific application scenarios.
-      <!--(This isn't saying that deep learning as
-      a powerful tool shouldn't be studied by researchers any more; in fact more basic research on how
-      it works or how to further improve it in general is needed.)-->
+      pairs. During this period, I gradually realized that correlation is superficial (not saying that it's easy) and it
+      probably won't lead us to general AI.
+      </p>
+      <p>
+      Particularly, deep learning has proven its strong capability of learning really complex correlations and had its
+      place in training really huge correlation models. It
+      might be better to leave correlation learning at scale to product teams, under specific application scenarios.
+      How to leverage deep learning for more advanced usage is a topic that attracts me at the moment.
       </p>
 
       <p>
-        So far, <a href="https://en.wikipedia.org/wiki/Causal_reasoning">causal reasoning</a>
-        is a promising direction to strong AI, or at least it is a further step towards it.
+        <a href="https://en.wikipedia.org/wiki/Causal_reasoning">Causal reasoning</a>
+        is a promising direction to general AI, or at least it is a further step towards it.
         <a href="https://en.wikipedia.org/wiki/Reinforcement_learning">
           Reinforcement learning</a> can be thought of having a little
         flavor of causal reasoning because it usually asks one question: what consequences will
         I get if I take this action under this context (\(Q(s,a)\))? RL also gives an agent
         the opportunity of interacting with its surrounding environment to acquire embodied
-        knowledge, which I think is critical to strong AI.
+        knowledge, which I think is critical to general AI.
       </p>
     </div>
 
