@@ -2,9 +2,8 @@ var pubs = [
     {authors: "<u>Haonan Yu</u>, Wei Xu, Haichao Zhang",
      title: "Towards Safe Reinforcement Learning with a Safety Editor Policy",
      url: "https://arxiv.org/pdf/2201.12427.pdf",
-     conference: "arXiv",
+     conference: "NeurIPS",
      year: "2022",
-     note: "Preprint",
      resources: [
          "<a href='https://github.com/hnyu/seditor'>Code</a>",
      ]
