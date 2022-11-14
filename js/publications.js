@@ -6,6 +6,8 @@ var pubs = [
      year: "2022",
      resources: [
          "<a href='https://github.com/hnyu/seditor'>Code</a>",
+         "<a href='https://openreview.net/forum?id=U1m_93ansV'>OpenReview</a>",
+         "<a href='https://drive.google.com/file/d/1OKJ_rJSypBenBGRss0RwpIiW4MLc0f2Y/view?usp=share_link'>Poster</a>"
      ]
     },
     {authors: "<u>Haonan Yu</u>, Haichao Zhang, Wei Xu",
