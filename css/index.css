@@ -44,7 +44,7 @@ a {
 /* Customize container */
 @media {
   .container {
-    max-width: 900px;
+    max-width: 1000px;
     background-color: #fffff4;
   }
 }
@@ -91,4 +91,15 @@ hr {
 
 .container h4 {
     font-weight: bold;
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+}
+
+.padding-table-col {
+  padding: 0 20px 0 0;
+  width: 32%;
+  height: auto;
 }
