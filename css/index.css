@@ -44,7 +44,7 @@ a {
 /* Customize container */
 @media {
   .container {
-    max-width: 1000px;
+    max-width: 900px;
     background-color: #fffff4;
   }
 }

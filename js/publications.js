@@ -1,4 +1,14 @@
 var pubs = [
+    {authors: "Haichao Zhang, Wei Xu, <u>Haonan Yu</u>",
+     title: "Policy Expansion for Bridging Offline-to-Online Reinforcement Learning",
+     url: "https://arxiv.org/pdf/2302.00935.pdf",
+     conference: "ICLR",
+     year: "2023",
+     resources: [
+         "<a href='https://openreview.net/forum?id=-Y34L45JR6z'>OpenReview</a>"
+     ],
+     thumbnail: "./assets/pex.png"
+    },
     {authors: "<u>Haonan Yu</u>, Wei Xu, Haichao Zhang",
      title: "Towards Safe Reinforcement Learning with a Safety Editor Policy",
      url: "https://arxiv.org/pdf/2201.12427.pdf",
