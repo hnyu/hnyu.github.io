@@ -5,7 +5,8 @@ var pubs = [
      conference: "ICLR",
      year: "2023",
      resources: [
-         "<a href='https://openreview.net/forum?id=-Y34L45JR6z'>OpenReview</a>"
+         "<a href='https://openreview.net/forum?id=-Y34L45JR6z'>OpenReview</a>",
+         "<a href='https://github.com/Haichao-Zhang/PEX'>Code</a>"
      ],
      thumbnail: "./assets/pex.png"
     },
