@@ -1,4 +1,15 @@
 var pubs = [
+    {authors: " <u>Haonan Yu</u>, Wei Xu",
+     title: "VONet: Unsupervised Video Object Learning With Parallel U-Net Attention and Object-wise Sequential VAE",
+     url: "https://arxiv.org/pdf/2401.11110.pdf",
+     conference: "ICLR",
+     year: "2024",
+     resources: [
+         "<a href='https://openreview.net/forum?id=qCyhvr0GG8'>OpenReview</a>",
+         "<a href='https://github.com/hnyu/vonet'>Code</a>"
+     ],
+     thumbnail: "./assets/vonet_results.png"
+    },
     {authors: "Haichao Zhang, Wei Xu, <u>Haonan Yu</u>",
      title: "Policy Expansion for Bridging Offline-to-Online Reinforcement Learning",
      url: "https://arxiv.org/pdf/2302.00935.pdf",
