@@ -6,7 +6,8 @@ var pubs = [
      year: "2024",
      resources: [
          "<a href='https://openreview.net/forum?id=qCyhvr0GG8'>OpenReview</a>",
-         "<a href='https://github.com/hnyu/vonet'>Code</a>"
+         "<a href='https://github.com/hnyu/vonet'>Code</a>",
+         "<a href='https://drive.google.com/file/d/1UpgcG3VZW2FIB-IxxUNkAbPJIU9q7dSq/view?usp=sharing'>Poster</a>"
      ],
      thumbnail: "./assets/vonet_results.png"
     },
