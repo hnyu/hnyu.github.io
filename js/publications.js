@@ -1,4 +1,11 @@
 var pubs = [
+    {authors: "Haichao Zhang, <u>Haonan Yu</u>, Le Zhao, Andrew Choi, Qinxun Bai, Yiqing Yang, Wei Xu",
+     title: "SLIM: Sim-to-Real Legged Instructive Manipulation via Long-Horizon Visuomotor Learning",
+     url: "https://arxiv.org/pdf/2501.09905",
+     conference: "arXiv",
+     year: "2025",
+     thumbnail: "./assets/slim.png"
+    },
     {authors: " <u>Haonan Yu</u>, Wei Xu",
      title: "VONet: Unsupervised Video Object Learning With Parallel U-Net Attention and Object-wise Sequential VAE",
      url: "https://arxiv.org/pdf/2401.11110.pdf",
