@@ -4,7 +4,16 @@ var pubs = [
      url: "https://arxiv.org/pdf/2501.09905",
      conference: "arXiv",
      year: "2025",
-     thumbnail: "./assets/slim.png"
+     thumbnail: "./assets/slim.png",
+     videos: [
+         "./assets/slim_mulch.mp4",
+         "./assets/slim_obstacle.mov",
+         "./assets/slim_grass.MOV",
+         "./assets/slim_distractors.mov"
+     ],
+     resources: [
+        "Code (coming soon)"
+     ],
     },
     {authors: " <u>Haonan Yu</u>, Wei Xu",
      title: "VONet: Unsupervised Video Object Learning With Parallel U-Net Attention and Object-wise Sequential VAE",

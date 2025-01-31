@@ -130,6 +130,16 @@
           document.write("<br>&rarr; "+pubs[i]["resources"][j]);
       }
      }
+     // videos (if any)
+     if ("videos" in pubs[i]) {
+      document.write("<p>");
+      for (j = 0; j < pubs[i]["videos"].length; j += 1) {
+          document.write("<video width='160' height='90' controls>");
+          document.write("<source src='"+pubs[i]["videos"][j]+"' type='video/mp4'>");
+          document.write("</video>");
+      }
+      document.write("</p>");
+     }
 	   document.write("</p></td>");
      document.write("</tr></table>");
 	 }
