@@ -48,6 +48,9 @@ var pubs = [
          "<a href='https://openreview.net/forum?id=U1m_93ansV'>OpenReview</a>",
          "<a href='https://drive.google.com/file/d/1OKJ_rJSypBenBGRss0RwpIiW4MLc0f2Y/view?usp=share_link'>Poster</a>"
      ],
+     videos: [
+        "./assets/seditor_demo.mp4"
+     ],
      thumbnail: "./assets/seditor.png"
     },
     {authors: "<u>Haonan Yu</u>, Haichao Zhang, Wei Xu",
@@ -70,7 +73,8 @@ var pubs = [
      resources: [
          "<a href='https://openreview.net/forum?id=YZHES8wIdE'>OpenReview</a>",
          "<a href='https://github.com/Haichao-Zhang/generative-planning'>Code</a>",
-         "<a href='https://drive.google.com/file/d/1NEKFIUWGrUMfCkyTfEt8_Z5wcA41Apes/view'>Slides</a>"
+         "<a href='https://drive.google.com/file/d/1NEKFIUWGrUMfCkyTfEt8_Z5wcA41Apes/view'>Slides</a>",
+         "<a href='https://lh6.googleusercontent.com/5RLi4s_XX5YWM8sQIIh4-JdPkKvgurf9dAAZCPg-c9vw1kdHgiEL3FHqNUJHBDVPKa2KnbuoJEvSgMzbs14K3Ww=w1280'>Poster</a>"
      ],
      thumbnail: "./assets/coord_explore.png"
     },
@@ -83,8 +87,10 @@ var pubs = [
          "<a href='https://github.com/hnyu/taac'>Code</a>",
          "<a href='https://openreview.net/forum?id=PCLsRp_4R7C'>OpenReview</a>",
          "<a href='https://drive.google.com/file/d/19pARWfSqJIlMFhiWDYGvnKJYPB41_Thk/view?usp=sharing'>Slides</a>",
-         "<a href='https://drive.google.com/file/d/1MRcMzPC57VH_cpz5pMT9uuK05i8dGg7S/view?usp=sharing'>Poster</a>",
-         "<a href='https://drive.google.com/file/d/1WH1hOHa9gQPkK9pyjNSg1mbSEkiMBWIu/view?usp=sharing'>Video</a>"
+         "<a href='https://drive.google.com/file/d/1MRcMzPC57VH_cpz5pMT9uuK05i8dGg7S/view?usp=sharing'>Poster</a>"
+     ],
+     videos: [
+        "./assets/taac_demo.mp4"
      ],
      thumbnail: "./assets/taac.png"
     },
@@ -95,7 +101,8 @@ var pubs = [
      year: "2021",
      note: "*Equal contribution",
      resources : [
-         "<a href='https://github.com/jesbu1/hidio'>Code</a>"
+         "<a href='https://github.com/jesbu1/hidio'>Code</a>",
+         "<a href='https://iclr.cc/media/Slides/iclr/2021/virtual%2806-16-00%29-06-16-00UTC-2805-hierarchical_re.pdf'>Slides</a>"
      ],
      thumbnail: "./assets/hidio.png"
     },
