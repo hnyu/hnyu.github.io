@@ -12,7 +12,6 @@ var pubs = [
          "./assets/slim_distractors.mov"
      ],
      resources: [
-        "Code (coming soon)"
      ],
     },
     {authors: " <u>Haonan Yu</u>, Wei Xu",
