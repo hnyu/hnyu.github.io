@@ -12,6 +12,7 @@ var pubs = [
          "./assets/slim_distractors.mov"
      ],
      resources: [
+        "A shorter version: <a href='https://arxiv.org/abs/2509.03859'>Learning Multi-Stage Pick-and-Place with a Legged Mobile Manipulator</a>, IEEE RA-L, 2025"
      ],
     },
     {authors: " <u>Haonan Yu</u>, Wei Xu",
