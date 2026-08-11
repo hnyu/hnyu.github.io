@@ -51,18 +51,17 @@ a {
     color: #026bc3;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-right: 15px;
-  padding-left: 15px;
-}
+/* No side padding here: .header lives inside .container, which already supplies
+   Bootstrap's 15px gutter. Adding more indented the header past the rest of the
+   page on phones. */
 
-/* Custom page header */
+/* Custom page header. margin-bottom belongs here rather than in the >=768px
+   media query, otherwise the intro paragraph sits flush against the rule on
+   phones. */
 .header {
     padding-top: 10px;
     padding-bottom: 20px;
+    margin-bottom: 30px;
     border-bottom: 1px solid #e5e5e5;
 }
 /* Make the masthead heading the same height as the navigation */
@@ -102,21 +101,6 @@ hr {
   margin-top: 28px;
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-right: 0;
-    padding-left: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-}
-
 .floatr {
     float: right;
     margin-left: 10px;
@@ -134,6 +118,35 @@ hr {
 .thumbnail {
   width: 100%;
   height: auto;
+}
+
+.info-table td {
+  padding: 0 24px 1px 0;
+  vertical-align: top;
+}
+
+.info-table td:last-child {
+  padding-right: 0;
+  white-space: nowrap;
+}
+
+/* Narrow phones can't fit three columns without wrapping mid-cell, so collapse
+   each entry into two lines: role, then employer + years. */
+@media screen and (max-width: 600px) {
+  .info-table tr,
+  .info-table td:first-child {
+    display: block;
+  }
+  .info-table td {
+    display: inline;
+    padding: 0;
+  }
+  .info-table tr + tr {
+    margin-top: 10px;
+  }
+  .info-table td:last-child::before {
+    content: ", ";
+  }
 }
 
 .padding-table-col {
