@@ -5,12 +5,6 @@ var pubs = [
      conference: "arXiv",
      year: "2025",
      thumbnail: "./assets/slim.png",
-     videos: [
-         "./assets/slim_mulch.mp4",
-         "./assets/slim_obstacle.mov",
-         "./assets/slim_grass.MOV",
-         "./assets/slim_distractors.mov"
-     ],
      resources: [
         "A shorter version: <a href='https://arxiv.org/abs/2509.03859'>Learning Multi-Stage Pick-and-Place with a Legged Mobile Manipulator</a>, IEEE RA-L, 2025",
         "<a href='https://horizonrobotics.github.io/gail/SLIM/'>Project website</a>"
@@ -49,9 +43,6 @@ var pubs = [
          "<a href='https://openreview.net/forum?id=U1m_93ansV'>OpenReview</a>",
          "<a href='https://drive.google.com/file/d/1OKJ_rJSypBenBGRss0RwpIiW4MLc0f2Y/view?usp=share_link'>Poster</a>"
      ],
-     videos: [
-        "./assets/seditor_demo.mp4"
-     ],
      thumbnail: "./assets/seditor.png"
     },
     {authors: "<u>Haonan Yu</u>, Haichao Zhang, Wei Xu",
@@ -89,9 +80,6 @@ var pubs = [
          "<a href='https://openreview.net/forum?id=PCLsRp_4R7C'>OpenReview</a>",
          "<a href='https://drive.google.com/file/d/19pARWfSqJIlMFhiWDYGvnKJYPB41_Thk/view?usp=sharing'>Slides</a>",
          "<a href='https://drive.google.com/file/d/1MRcMzPC57VH_cpz5pMT9uuK05i8dGg7S/view?usp=sharing'>Poster</a>"
-     ],
-     videos: [
-        "./assets/taac_demo.mp4"
      ],
      thumbnail: "./assets/taac.png"
     },
@@ -213,11 +201,11 @@ var pubs = [
      thumbnail: "./assets/grounded_language.png"
      //"<a href='./datasets/acl2013-dataset.zip'>Dataset</a> (105MB)"
     },
-    {authors: "<u>Haonan Yu</u>, Jia Li, Yonghong Tian, Tiejun Huang",
-     title: "Automatic Interesting Object Extraction From Images Using Complementary Saliency Maps",
-     url: "./papers/acmmm2010.pdf",
-     conference: "ACMMM",
-     year: "2010",
-     thumbnail: "./assets/complementary_saliency.png"
-    }
+    //{authors: "<u>Haonan Yu</u>, Jia Li, Yonghong Tian, Tiejun Huang",
+    // title: "Automatic Interesting Object Extraction From Images Using Complementary Saliency Maps",
+    // url: "./papers/acmmm2010.pdf",
+    // conference: "ACMMM",
+    // year: "2010",
+    // thumbnail: "./assets/complementary_saliency.png"
+    //}
 ];

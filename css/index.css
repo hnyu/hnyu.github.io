@@ -149,6 +149,58 @@ hr {
   }
 }
 
+/* Demos: a title + blurb, followed by a grid of 16:9 clips, two per row. */
+.demo-entry + .demo-entry {
+  margin-top: 24px;
+}
+
+.demo-title {
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.demo-desc {
+  margin-bottom: 10px;
+}
+
+.demo-media {
+  display: grid;
+  /* Two clips per row at most: wider tiles read better than a dense strip. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 14px;
+}
+
+/* One per row on phones, where half a column is too narrow to see anything. */
+@media screen and (max-width: 600px) {
+  .demo-media {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.demo-item {
+  margin: 0;
+}
+
+.demo-item video,
+.demo-item iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  border: 0;
+}
+
+/* Per-clip caption, for when one title covers several differing demos. */
+.demo-item figcaption {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* A lone clip (e.g. the YouTube embed) shouldn't stretch the full page width. */
+.demo-media:has(> :only-child) {
+  grid-template-columns: minmax(0, 480px);
+}
+
 .padding-table-col {
   padding: 0 20px 0 0;
   width: 32%;

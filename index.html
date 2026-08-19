@@ -32,6 +32,8 @@
     <meta name="google-site-verification" content="9sYTX8oJdWKCg65ePSIPmE81nJAb0zEpvGWPRs6qaJM" />
     <!-- Figtree is self-hosted in ./assets/fonts (declared in ./css/index.css) -->
     <link rel="preload" href="./assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- my demo list -->
+    <script src="./js/demos.js"></script>
     <!-- my publication list -->
     <script src="./js/publications.js"></script>
     <!-- my email -->
@@ -70,7 +72,7 @@
       </div>
     <div>
     <p>
-      I am a research scientist at <a href="https://www.skild.ai/">Skild AI</a>. I lead some of the factory tasks at Skild, for example, <a href="https://www.youtube.com/watch?v=ZSXQW6PLJrM">Nvidia GB300 tester busbar assembly</a>.
+      I am a research scientist at <a href="https://www.skild.ai/">Skild AI</a>, leading some of the factory tasks such as <a href="https://www.youtube.com/watch?v=ZSXQW6PLJrM">Nvidia GB300 tester busbar assembly</a>.
     </p>
 
     <p>
@@ -96,7 +98,7 @@
       </table>
     </div>
 
-    <hr>
+    <!--hr>
 
     <h4>Education</h4>
     <div>
@@ -106,6 +108,52 @@
           <tr><td>Bachelor of Computer Science, Peking University</td></tr>
         </table>
       </p>
+    </div-->
+
+    <hr>
+
+    <h4>Demos</h4>
+    <p>
+      <i>All demos shown below are 1x autonomous.</i>
+    </p>
+    <div>
+      <script>
+       for (i = 0; i < demos.length; i += 1) {
+         document.write("<div class='demo-entry'>");
+         document.write("<p class='demo-title'>");
+         if ("url" in demos[i]) {
+           document.write("<a href='" + demos[i]["url"] + "'>" + demos[i]["title"] + "</a>");
+         } else {
+           document.write(demos[i]["title"]);
+         }
+         document.write("</p>");
+         if ("description" in demos[i]) {
+           document.write("<p class='demo-desc'>" + demos[i]["description"] + "</p>");
+         }
+         document.write("<div class='demo-media'>");
+         for (j = 0; j < demos[i]["media"].length; j += 1) {
+           var item = demos[i]["media"][j];
+           document.write("<figure class='demo-item'>");
+           if ("youtube" in item) {
+             document.write("<iframe src='https://www.youtube.com/embed/" + item["youtube"]
+                            + "' title='" + demos[i]["title"] + "' frameborder='0' allowfullscreen"
+                            + " allow='accelerometer; encrypted-media; gyroscope; picture-in-picture'>"
+                            + "</iframe>");
+           } else {
+             // preload only the metadata: these clips are tens of MBs each.
+             document.write("<video controls playsinline preload='metadata'>");
+             document.write("<source src='" + item["video"] + "' type='video/mp4'>");
+             document.write("</video>");
+           }
+           if ("caption" in item) {
+             document.write("<figcaption>" + item["caption"] + "</figcaption>");
+           }
+           document.write("</figure>");
+         }
+         document.write("</div>");
+         document.write("</div>");
+       }
+      </script>
     </div>
 
     <hr>
