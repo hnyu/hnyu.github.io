@@ -157,6 +157,9 @@ hr {
 .demo-title {
   margin-bottom: 4px;
   font-weight: bold;
+  /* Warm orange: clearly not the #026bc3 link blue, so a title isn't mistaken
+     for a link. Dark enough to stay legible on the cream background. */
+  color: #cc6a1a;
 }
 
 .demo-desc {
@@ -199,6 +202,37 @@ hr {
 /* A lone clip (e.g. the YouTube embed) shouldn't stretch the full page width. */
 .demo-media:has(> :only-child) {
   grid-template-columns: minmax(0, 480px);
+}
+
+/* Collapsible section. The <h4> stays inside <summary> so the heading still
+   reads as one, with a rotating caret standing in for the default marker. */
+.fold > summary {
+  cursor: pointer;
+  list-style: none;
+  /* The heading is a block elsewhere on the page; restore its spacing here. */
+  margin: 10px 0;
+}
+
+.fold > summary::-webkit-details-marker {
+  display: none;
+}
+
+.fold > summary h4 {
+  display: inline;
+}
+
+.fold > summary h4::after {
+  content: " \25B8";
+  color: #999;
+  font-weight: normal;
+}
+
+.fold[open] > summary h4::after {
+  content: " \25BE";
+}
+
+.fold[open] > summary {
+  margin-bottom: 14px;
 }
 
 .padding-table-col {
