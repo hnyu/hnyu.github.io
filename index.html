@@ -92,9 +92,9 @@
     <div>
       <table class="info-table">
         <tr><td>Member of Technical Staff</td><td><a href="https://www.skild.ai/">Skild AI</a></td><td>2025 - Present</td></tr>
-        <tr><td>Research Scientist</td><td><a href="https://www.horizon.auto/">Horizon Robotics</a></td><td>2019 - 2025</td></tr>
-        <tr><td>Research Engineer</td><td><a href="https://ai.facebook.com/">Facebook AI Research</a></td><td>2018 - 2019</td></tr>
-        <tr><td>Research Scientist</td><td><a href="https://usa.baidu.com/">Baidu Research</a></td><td>2016 - 2018</td></tr>
+        <tr><td>Principal Research Scientist</td><td><a href="https://www.horizon.auto/">Horizon Robotics</a></td><td>2019 - 2025</td></tr>
+        <tr><td>Senior Research Engineer</td><td><a href="https://ai.facebook.com/">Facebook AI Research</a></td><td>2018 - 2019</td></tr>
+        <tr><td>Senior Research Scientist</td><td><a href="https://usa.baidu.com/">Baidu Research</a></td><td>2016 - 2018</td></tr>
         <tr><td>Research Intern</td><td><a href="https://usa.baidu.com/">Baidu Research</a></td><td>2015</td></tr>
       </table>
     </div>
@@ -141,8 +141,11 @@
                             + " allow='accelerometer; encrypted-media; gyroscope; picture-in-picture'>"
                             + "</iframe>");
            } else {
-             // preload only the metadata: these clips are tens of MBs each.
-             document.write("<video controls playsinline preload='metadata'>");
+             // Poster frame + no preload: mobile browsers ignore preload='metadata'
+             // and would otherwise show an empty box until the clip is tapped.
+             document.write("<video controls playsinline preload='none'"
+                            + ("poster" in item ? " poster='" + item["poster"] + "'" : "")
+                            + ">");
              document.write("<source src='" + item["video"] + "' type='video/mp4'>");
              document.write("</video>");
            }
