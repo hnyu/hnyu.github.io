@@ -115,6 +115,13 @@ var pubs = [
      ],
      thumbnail: "./assets/craftassist.png"
     },
+    {authors: "Zhuoyuan Chen, Demi Guo, Tong Xiao, Saining Xie, Xinlei Chen, <u>Haonan Yu</u>, Jonathan Gray, Kavya Srinet, Haoqi Fan, Jerry Ma, Charles R Qi, Shubham Tulsiani, Arthur Szlam, C Lawrence Zitnick",
+     title: "Order-Aware Generative Modeling Using the 3D-Craft Dataset",
+     url: "https://openaccess.thecvf.com/content_ICCV_2019/papers/Chen_Order-Aware_Generative_Modeling_Using_the_3D-Craft_Dataset_ICCV_2019_paper.pdf",
+     conference: "ICCV",
+     year: "2019",
+     thumbnail: "./assets/3d_craft.png"
+    },
     {authors: "Ari S Morcos, <u>Haonan Yu</u>, Michela Paganini, Yuandong Tian",
      title: "One ticket to win them all: generalizing lottery ticket initializations across datasets and optimizers",
      url: "https://arxiv.org/pdf/1906.02773.pdf",
