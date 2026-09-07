@@ -85,6 +85,23 @@ a {
     background-color: #fffff4;
   }
 }
+
+/* With the foldable sections collapsed the content can be shorter than the
+   window, and the cream column would otherwise stop mid-page and expose the
+   dark body behind it. The 10px subtracted is the body's vertical padding,
+   which keeps the thin dark border top and bottom without adding a scrollbar. */
+.container {
+  min-height: calc(100vh - 10px);
+}
+
+/* Mobile browsers size 100vh to the *largest* viewport, i.e. with the address
+   bar hidden, which overflows by the toolbar's height while it is showing.
+   dvh tracks the viewport as it actually is. */
+@supports (height: 100dvh) {
+  .container {
+    min-height: calc(100dvh - 10px);
+  }
+}
 .container-narrow > hr {
   margin: 30px 0;
 }
@@ -168,8 +185,10 @@ hr {
 
 .demo-media {
   display: grid;
-  /* Two clips per row at most: wider tiles read better than a dense strip. */
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Two clips per row at most: wider tiles read better than a dense strip.
+     A demo can override the ratio via --demo-cols when its row mixes aspect
+     ratios and the tiles need unequal widths to end up the same height. */
+  grid-template-columns: var(--demo-cols, repeat(2, minmax(0, 1fr)));
   gap: 10px 14px;
 }
 
@@ -186,9 +205,23 @@ hr {
 
 .demo-item video,
 .demo-item iframe {
+  /* Block, not inline: an inline media element sits on a text baseline, and the
+     descender gap below it would push its caption out of line with the caption
+     of a block-level photo sharing the row. */
+  display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
   background-color: #000;
+  border: 0;
+}
+
+/* A still photo fills its tile at its own aspect ratio: no letterboxing and no
+   crop. Its tile is instead given a width proportional to that ratio (see
+   --demo-cols), which is what keeps it level with the clip beside it. */
+.demo-item .demo-photo {
+  display: block;
+  width: 100%;
+  height: auto;
   border: 0;
 }
 

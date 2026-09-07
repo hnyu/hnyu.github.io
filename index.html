@@ -113,11 +113,12 @@
 
     <hr>
 
-    <h4>Demos</h4>
-    <p>
-      <i>All demos shown below are 1x autonomous.</i>
-    </p>
-    <div>
+    <details class="fold">
+      <summary><h4>Demos</h4></summary>
+      <p>
+        <i>All demos shown below are 1x autonomous.</i>
+      </p>
+      <div>
       <script>
        for (i = 0; i < demos.length; i += 1) {
          document.write("<div class='demo-entry'>");
@@ -131,7 +132,12 @@
          if ("description" in demos[i]) {
            document.write("<p class='demo-desc'>" + demos[i]["description"] + "</p>");
          }
-         document.write("<div class='demo-media'>");
+         // Set as a custom property, not grid-template-columns directly, so the
+         // one-column phone rule in the stylesheet still takes precedence.
+         document.write("<div class='demo-media'"
+                        + ("columns" in demos[i]
+                           ? " style='--demo-cols: " + demos[i]["columns"] + "'" : "")
+                        + ">");
          for (j = 0; j < demos[i]["media"].length; j += 1) {
            var item = demos[i]["media"][j];
            document.write("<figure class='demo-item'>");
@@ -140,6 +146,9 @@
                             + "' title='" + demos[i]["title"] + "' frameborder='0' allowfullscreen"
                             + " allow='accelerometer; encrypted-media; gyroscope; picture-in-picture'>"
                             + "</iframe>");
+           } else if ("image" in item) {
+             document.write("<img class='demo-photo' src='" + item["image"]
+                            + "' alt='" + demos[i]["title"] + "' loading='lazy'>");
            } else {
              // Poster frame + no preload: mobile browsers ignore preload='metadata'
              // and would otherwise show an empty box until the clip is tapped.
@@ -158,7 +167,8 @@
          document.write("</div>");
        }
       </script>
-    </div>
+      </div>
+    </details>
 
     <hr>
 
@@ -218,14 +228,14 @@
       <h4>Softwares</h4>
       <div>
         <p>
-	  <a href="https://github.com/HorizonRobotics/alf">ALF</a> - Agent Learning Framework
-	  (ALF) is a PyTorch reinforcement learning framework emphasizing on the flexibility
-	  and easiness of implementing complex algorithms involving many different
-	  components.<br>
-	</p>
+        <a href="https://github.com/HorizonRobotics/alf">ALF</a> - Agent Learning Framework
+        (ALF) is a PyTorch reinforcement learning framework emphasizing on the flexibility
+        and easiness of implementing complex algorithms involving many different
+        components.<br>
+      </p>
       </div>
 
-      <hr>
+      <!--hr>
 
       <h4>Hobbies</h4>
       <div>
@@ -233,7 +243,7 @@
         I like playing video games, especially ARPG. So far my favorite games are
         souls-like, by <a href="https://www.fromsoftware.jp/ww/">FromSoftware</a>.
         </p>
-      </div>
+      </div-->
 
       <!--footer class="footer">
         <p>Last update: August 2022</p>
