@@ -34,6 +34,8 @@
     <link rel="preload" href="./assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
     <!-- my demo list -->
     <script src="./js/demos.js"></script>
+    <!-- shared renderer for the demo and deployment media sections -->
+    <script src="./js/media.js"></script>
     <!-- my publication list -->
     <script src="./js/publications.js"></script>
     <!-- my email -->
@@ -114,59 +116,21 @@
     <hr>
 
     <details class="fold">
+      <summary><h4>Deployment</h4></summary>
+      <div>
+        <script>writeMediaEntries(deployment);</script>
+      </div>
+    </details>
+
+    <hr>
+
+    <details class="fold">
       <summary><h4>Demos</h4></summary>
       <p>
         <i>All demos shown below are 1x autonomous.</i>
       </p>
       <div>
-      <script>
-       for (i = 0; i < demos.length; i += 1) {
-         document.write("<div class='demo-entry'>");
-         document.write("<p class='demo-title'>");
-         if ("url" in demos[i]) {
-           document.write("<a href='" + demos[i]["url"] + "'>" + demos[i]["title"] + "</a>");
-         } else {
-           document.write(demos[i]["title"]);
-         }
-         document.write("</p>");
-         if ("description" in demos[i]) {
-           document.write("<p class='demo-desc'>" + demos[i]["description"] + "</p>");
-         }
-         // Set as a custom property, not grid-template-columns directly, so the
-         // one-column phone rule in the stylesheet still takes precedence.
-         document.write("<div class='demo-media'"
-                        + ("columns" in demos[i]
-                           ? " style='--demo-cols: " + demos[i]["columns"] + "'" : "")
-                        + ">");
-         for (j = 0; j < demos[i]["media"].length; j += 1) {
-           var item = demos[i]["media"][j];
-           document.write("<figure class='demo-item'>");
-           if ("youtube" in item) {
-             document.write("<iframe src='https://www.youtube.com/embed/" + item["youtube"]
-                            + "' title='" + demos[i]["title"] + "' frameborder='0' allowfullscreen"
-                            + " allow='accelerometer; encrypted-media; gyroscope; picture-in-picture'>"
-                            + "</iframe>");
-           } else if ("image" in item) {
-             document.write("<img class='demo-photo' src='" + item["image"]
-                            + "' alt='" + demos[i]["title"] + "' loading='lazy'>");
-           } else {
-             // Poster frame + no preload: mobile browsers ignore preload='metadata'
-             // and would otherwise show an empty box until the clip is tapped.
-             document.write("<video controls playsinline preload='none'"
-                            + ("poster" in item ? " poster='" + item["poster"] + "'" : "")
-                            + ">");
-             document.write("<source src='" + item["video"] + "' type='video/mp4'>");
-             document.write("</video>");
-           }
-           if ("caption" in item) {
-             document.write("<figcaption>" + item["caption"] + "</figcaption>");
-           }
-           document.write("</figure>");
-         }
-         document.write("</div>");
-         document.write("</div>");
-       }
-      </script>
+        <script>writeMediaEntries(demos);</script>
       </div>
     </details>
 
@@ -216,7 +180,7 @@
 	     $(this).css("background-color", "#ffffff");
 	   },
 	   function () {
-	     $(this).css("background-color", "#fffff4");
+	     $(this).css("background-color", "#e7edf2");
 	   }
    );
 	</script>
@@ -228,10 +192,9 @@
       <h4>Softwares</h4>
       <div>
         <p>
-        <a href="https://github.com/HorizonRobotics/alf">ALF</a> - Agent Learning Framework
-        (ALF) is a PyTorch reinforcement learning framework emphasizing on the flexibility
-        and easiness of implementing complex algorithms involving many different
-        components.<br>
+        <a href="https://github.com/HorizonRobotics/alf">ALF</a> - Agent Learning Framework (ALF)
+        is a PyTorch reinforcement learning framework that emphasizes flexibility in implementing
+        complex, multi-component algorithms. ALF drives most RL research and applications at Horizon.<br>
       </p>
       </div>
 

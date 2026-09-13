@@ -62,7 +62,7 @@ a {
     padding-top: 10px;
     padding-bottom: 20px;
     margin-bottom: 30px;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #d3dee6;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -75,19 +75,19 @@ a {
 .footer {
   padding-top: 19px;
   color: #777;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #d3dee6;
 }
 
 /* Customize container */
 @media {
   .container {
     max-width: 1000px;
-    background-color: #fffff4;
+    background-color: #e7edf2;
   }
 }
 
 /* With the foldable sections collapsed the content can be shorter than the
-   window, and the cream column would otherwise stop mid-page and expose the
+   window, and the tinted column would otherwise stop mid-page and expose the
    dark body behind it. The 10px subtracted is the body's vertical padding,
    which keeps the thin dark border top and bottom without adding a scrollbar. */
 .container {
@@ -107,7 +107,7 @@ a {
 }
 
 hr {
-    border-color: #e2e2e2;
+    border-color: #d3dee6;
 }
 
 /* Supporting marketing content */
@@ -174,9 +174,9 @@ hr {
 .demo-title {
   margin-bottom: 4px;
   font-weight: bold;
-  /* Warm orange: clearly not the #026bc3 link blue, so a title isn't mistaken
-     for a link. Dark enough to stay legible on the cream background. */
-  color: #cc6a1a;
+  /* Muted steel blue: lighter than navy but visibly less saturated than the
+     #026bc3 link blue, so a title isn't mistaken for a link. */
+  color: #1f5c94;
 }
 
 .demo-desc {
@@ -232,9 +232,11 @@ hr {
   color: #555;
 }
 
-/* A lone clip (e.g. the YouTube embed) shouldn't stretch the full page width. */
+/* A lone clip (e.g. the YouTube embed) shouldn't stretch the full page width,
+   unless its section asks to via --demo-cols. This rule outranks the ones above
+   on specificity, so it has to read the override too or it would ignore it. */
 .demo-media:has(> :only-child) {
-  grid-template-columns: minmax(0, 480px);
+  grid-template-columns: var(--demo-cols, minmax(0, 480px));
 }
 
 /* Collapsible section. The <h4> stays inside <summary> so the heading still
