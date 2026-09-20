@@ -164,6 +164,14 @@ hr {
   .info-table td:last-child::before {
     content: ", ";
   }
+  /* Education entries are degree + school, so the school starts its own line
+     rather than trailing the line above after a comma. */
+  .edu-table td:last-child {
+    display: block;
+  }
+  .edu-table td:last-child::before {
+    content: none;
+  }
 }
 
 /* Demos: a title + blurb, followed by a grid of 16:9 clips, two per row. */
