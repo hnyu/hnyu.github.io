@@ -37,11 +37,9 @@ var demos = [
 
 // Real-world deployments, rendered by the same code as the demos above.
 var deployment = [
-    // One clip per row at full page width: these are headline results, and a
-    // factory line carries detail that a half-width tile loses.
-    {columns: "minmax(0, 1fr)",
-     description: "Bimanual UR deployed on a real assembly line at the Foxconn factory in Texas, July 2026 (<a href='https://blogs.nvidia.com/blog/skild-ai-s1-physical-ai/'>NVIDIA blog</a>). "
-                + "The robot is an upgraded version of the one from the GTC demo.",
+    {description: ["Bimanual UR deployed on a real assembly line at the Foxconn factory in Texas, July 2026 (<a href='https://blogs.nvidia.com/blog/skild-ai-s1-physical-ai/'>NVIDIA blog</a>). "
+                   + "The robot is an upgraded version of the one from the GTC demo.<br><br>"
+                   + "Each server board arrives with slight variations in pose and appearance, and the robot must adapt to them to install the busbars correctly."],
      media: [
          {video: "./assets/server_factory.mp4", poster: "./assets/posters/server_factory.jpg"}
      ]

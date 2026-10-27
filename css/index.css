@@ -62,7 +62,7 @@ a {
     padding-top: 10px;
     padding-bottom: 20px;
     margin-bottom: 30px;
-    border-bottom: 1px solid #d3dee6;
+    border-bottom: 1px solid #e3ded3;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -75,14 +75,14 @@ a {
 .footer {
   padding-top: 19px;
   color: #777;
-  border-top: 1px solid #d3dee6;
+  border-top: 1px solid #e3ded3;
 }
 
 /* Customize container */
 @media {
   .container {
     max-width: 1000px;
-    background-color: #e7edf2;
+    background-color: #faf8f3;
   }
 }
 
@@ -107,7 +107,7 @@ a {
 }
 
 hr {
-    border-color: #d3dee6;
+    border-color: #e3ded3;
 }
 
 /* Supporting marketing content */
